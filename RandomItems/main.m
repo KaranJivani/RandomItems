@@ -67,7 +67,8 @@ int main(int argc, const char * argv[]) {
             NSLog(@"%@",item);
         }
         
-        NSLog(@"%@",[items objectAtIndex:11]);
+//        NSLog(@"%@",[items objectAtIndex:11]);
+        
         items = nil;
     
     }
