@@ -30,6 +30,23 @@
     return self;
 }
 
+////Silver challange
+//-(instancetype)initwithItemName:(NSString *)name serialNumber:(NSString *)serialNumber {
+//    
+//    return [self initWithItemName:name valueInDollars:0 serialNumber:serialNumber];
+//}
+
+-(instancetype)initWithItemName:(NSString *)name {
+    
+    return [self initWithItemName:name valueInDollars:0 serialNumber:@""];
+}
+
+-(instancetype)init {
+    
+    return[self initWithItemName:@"item"];
+}
+
+
 +(instancetype)randomItem {
     
     //Create an immutable array of three adjective
@@ -50,21 +67,16 @@
     
     int randomValue = arc4random() % 100;
     
-    NSString *randomSerialNumber = [NSString stringWithFormat:@"%c%c%c%c%c", '0'+arc4random()%10,'A'+arc4random()%26,'0'+arc4random()%10,'A'+arc4random()%26,'0'+arc4random()%10];
+    NSString *randomSerialNumber = [NSString stringWithFormat:@"%c%c%c%c%c",
+                                    '0'+arc4random()%10,
+                                    'A'+arc4random()%26,
+                                    '0'+arc4random()%10,
+                                    'A'+arc4random()%26,
+                                    '0'+arc4random()%10];
     
     KRNItems *newItem = [[self alloc]initWithItemName:randomName valueInDollars:randomValue serialNumber:randomSerialNumber];
     
     return newItem;
-}
-
--(instancetype)initWithItemName:(NSString *)name {
-    
-    return [self initWithItemName:name valueInDollars:0 serialNumber:@""];
-}
-
--(instancetype)init {
-    
-    return[self initWithItemName:@"item"];
 }
 
 -(void)setItemName:(NSString*)str {
